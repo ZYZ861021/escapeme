@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escape ME | 跳脫舒適圈的社交平台 | 個人頁面</title>
+    <meta
+      name="description"
+      content="一款全新概念的社交平台。「常常覺得生活沒有目標嗎？」Escape ME 提供你各式任務、冒險、挑戰等你去完成，藉此跳脫舒適圈，更發現自己的潛能。"
+    />
+    <link rel="shortcut icon" href="./images/favicon.ico" />
+    <link rel="bookmark" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="./style/tools/bootstrap_icons.css" />
+    <link rel="stylesheet" href="./style/tools/EsME_fonts.css" />
+    <link rel="stylesheet" href="./style/EscapeME.css" />
+    <script src="./js/vue.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 導覽列 -->
+      <nav class="navigation">
+        <!--logo img -->
+        <div class="nav-logo">
+          <a href="./about.html">
+            <img id="logo-img" src="./images/logo/logo_rec.png " />
+            <img id="logo-img-s" src="./images/logo/EsME_logo_main.png" />
+          </a>
+        </div>
+        <!-- nav icon -->
+        <div class="nav-wrap">
+          <div class="nav-item">
+            <a href="index.html">
+              <i class="bi bi-house"></i>
+              <p>HOME</p>
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="./search.html">
+              <i class="bi bi-search"></i>
+              <p>FIND</p>
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="rank.html">
+              <i class="bi bi-trophy"></i>
+              <p>RANK</p>
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="./shopping.html">
+              <i class="bi bi-cart"></i>
+              <p>SHOP</p>
+            </a>
+          </div>
+          <div class="nav-item">
+            <div class="personal-img-border">
+              <a href="personal_page.html">
+                <img
+                  style="border: 2px solid #fef9ef"
+                  :src="userImgSrc"
+                  alt="個人頭像"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- start btn -->
+        <div class="start-btn-wrap">
+          <div class="start-btn">
+            <a href="./mission.html">
+              <p class="pixel text-color-white">▶︎ Start</p>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <!-- 導覽列結束 -->
+
+      <div class="main">
+        <!-- 個人檔案 -->
+        <div class="personal-intro-wrap">
+          <div class="setting-or-follow">
+            <button @click="settingBtn" class="setting">編輯</button>
+            <button @click="personalBtn" class="setting">
+              <i class="bi bi-gear-fill"></i>
+            </button>
+          </div>
+          <div class="img-name-achieve">
+            <div class="img-name-wrap">
+              <img class="personal-img" :src="userImgSrc" />
+              <p class="user-name text-color-gray">{{nickName}}</p>
+            </div>
+            <div class="achieve">
+              <div class="achieve-item">
+                <a :href="missionCountUrl(memberId)">
+                  <p class="data text-color-red">{{missionCount}}</p>
+                  <p class="text-color-gray">任務</p>
+                </a>
+              </div>
+              <div class="achieve-item">
+                <p class="data text-color-yellow">{{starCount}}</p>
+                <p class="text-color-gray">星星</p>
+              </div>
+              <div class="achieve-item">
+                <p class="data text-color-blue">{{fansCount}}</p>
+                <p class="text-color-gray">粉絲</p>
+              </div>
+              <div class="achieve-item">
+                <p class="data text-color-green">{{followCount}}</p>
+                <p class="text-color-gray">追蹤</p>
+              </div>
+            </div>
+          </div>
+          <div class="self-introduction">
+            <p>{{introduction}}</p>
+          </div>
+
+          <!-- Modal -->
+          <!-- change personal file -->
+          <div v-show="settingValue" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <div>編輯個人頁面</div>
+                <div>
+                  <i @click="settingClose" class="close bi bi-x-circle"></i>
+                </div>
+              </div>
+              <div class="modal-body">
+                <div class="personal-file-setup">
+                  <div class="upload-img-warp">
+                    <div class="priview-img-wrap">
+                      <img :src="previewImgSrc" />
+                    </div>
+                    <label class="upload-img-btn" for="upload-img">
+                      <input
+                        @change="uploadPreviewImg"
+                        id="upload-img"
+                        type="file"
+                        accept=".png, .jpg, .jpeg"
+                      />
+                      <i class="bi bi-image"></i>&ensp;選擇圖片
+                    </label>
+                    <p>圖片大小限制 &lt; 2MB</p>
+                  </div>
+                  <div class="upload-context-wrap">
+                    <p>個人介紹 ...</p>
+                    <textarea
+                      rows="10"
+                      maxlength="300"
+                      v-model="introduction"
+                    ></textarea>
+                    <button @click="uploadNewUserInfo">
+                      修改並上傳個人介紹
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- account setting -->
+          <div v-show="personalValue" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <div>帳號設定</div>
+                <div>
+                  <i @click="personalClose" class="close bi bi-x-circle"></i>
+                </div>
+              </div>
+              <div class="modal-body">
+                <div class="account-setting">
+                  <p><i class="bi bi-person-circle"></i>&ensp;帳號資訊</p>
+                  <label for="userName">Nick Name</label>
+                  <input
+                    type="text"
+                    name="userName"
+                    id="userName"
+                    class="bg-yellow-l"
+                    autocomplete="off"
+                    :value="nickName"
+                  />
+                  <label for="">Email</label>
+                  <input type="email" name="email" :value="email" disabled />
+                  <label for="">Phone</label>
+                  <input type="tel" name="userPhone" :value="phone" disabled />
+                  <button id="change-userName-btn" type="submit">
+                    變更暱稱
+                  </button>
+                  <hr />
+
+                  <p><i class="bi bi-lock-fill"></i>&ensp;修改密碼</p>
+                  <label for="password"
+                    >Password<span
+                      ><a href="./change_password.html"
+                        >&emsp;忘記密碼？</a
+                      ></span
+                    ></label
+                  >
+                  <input type="password" name="password" id="password" />
+
+                  <label for="newPassword"
+                    >New Password<span>&emsp;(8-15位英文+數字)</span></label
+                  >
+                  <input type="password" name="newPassword" id="new-password" />
+                  <p class="input-error" id="new-password-input-error"></p>
+                  <label for="confirmNewPassword">Confirm New Password</label>
+                  <input
+                    type="password"
+                    name="confirmNewPassword"
+                    id="confirm-new-password"
+                  />
+                  <p
+                    class="input-error"
+                    id="confirm-new-password-input-error"
+                  ></p>
+                  <button id="change-password-btn">變更密碼</button>
+
+                  <hr />
+
+                  <button id="logout-btn">登出</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 個人檔案結束 -->
+
+        <div class="hr"></div>
+        <!-- 文章區 -->
+        <div class="post-cards">
+          <!-- 貼文1 -->
+          <div v-for="(p,index) in posts" :key="index" class="single-post-card">
+            <div class="post-user-info">
+              <div>
+                <a :href="personalPageUrl(p.memberId)">
+                  <img :src="p.userImgSrc" />
+                </a>
+                <a class="user-name" :href="personalPageUrl(p.memberId)"
+                  >{{p.nickName}}</a
+                >
+              </div>
+              <div>
+                <i class="bi bi-three-dots-vertical"></i>
+              </div>
+            </div>
+            <div class="post-mission">
+              <button :class="p.type">{{p.title}}</button>
+              <a href="javascript:;" class="mission-name"> # {{p.quest}} </a>
+            </div>
+
+            <div class="post-img">
+              <img @click="showModal(index)" :src="p.postImgSrc" />
+            </div>
+
+            <div class="like-comment-and-time">
+              <div class="like-comment">
+                <div>
+                  <button @click="changeIsLike(p,p.postId)">
+                    <i v-if="p.isLike" class="bi bi-heart-fill like"></i>
+                    <i v-else class="bi bi-heart like"></i>
+                  </button>
+                  <p class="like">{{p.likeCount}}</p>
+                </div>
+                <div>
+                  <i @click="showModal(index)" class="bi bi-chat comment"></i>
+                  <p class="comment">{{p.commentCount}}</p>
+                </div>
+              </div>
+              <div class="post-time">{{p.postTime}}</div>
+            </div>
+          </div>
+          <!-- 貼文結束 -->
+
+          <!-- Modal -->
+          <div
+            v-show="postModalDisplay[index]"
+            v-for="(p,index) in posts"
+            :key="p.postId"
+            class="post-modal"
+          >
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <div>查看貼文</div>
+                <div>
+                  <i
+                    @click="closeModal(index)"
+                    class="close bi bi-x-circle"
+                  ></i>
+                </div>
+              </div>
+              <div class="modal-body">
+                <!-- 單篇貼文開始 -->
+                <div class="single-post-with-comment mb-0">
+                  <div class="post-user-info">
+                    <div>
+                      <a :href="personalPageUrl(p.memberId)">
+                        <img :src="p.userImgSrc" />
+                      </a>
+                      <a class="user-name" :href="personalPageUrl(p.memberId)"
+                        >{{p.nickName}}</a
+                      >
+                    </div>
+                    <div>
+                      <i class="bi bi-three-dots-vertical"></i>
+                    </div>
+                  </div>
+                  <div class="post-mission">
+                    <button :class="p.type">{{p.title}}</button>
+                    <a href="javascript:;" class="mission-name">
+                      # {{p.quest}}
+                    </a>
+                  </div>
+                  <!-- 圖片 -->
+                  <div class="post-img">
+                    <img :src="p.postImgSrc" />
+                  </div>
+                  <div class="like-comment-and-time">
+                    <div class="like-comment">
+                      <div>
+                        <button @click="changeIsLike(p,p.postId)">
+                          <i v-if="p.isLike" class="bi bi-heart-fill like"></i>
+                          <i v-else class="bi bi-heart like"></i>
+                        </button>
+                        <p class="like">{{p.likeCount}}</p>
+                      </div>
+                      <div>
+                        <i class="bi bi-chat comment"></i>
+                        <p class="comment">{{p.commentCount}}</p>
+                      </div>
+                    </div>
+                    <div class="post-time">{{p.postTime}}</div>
+                  </div>
+
+                  <!-- 文章內文 -->
+                  <div class="post-article">
+                    <p>{{p.postContent}}</p>
+                  </div>
+
+                  <!-- 留言 -->
+                  <div class="comment-wrap">
+                    <div class="comments" :id="p.postId">
+                      <!-- 單篇留言 -->
+                      <div
+                        v-for="(c,index) in p.comments"
+                        :key="index"
+                        class="single-comment"
+                      >
+                        <div class="comment-user-img">
+                          <a :href="personalPageUrl(c.memberId)">
+                            <img :src="c.userImgSrc" />
+                          </a>
+                        </div>
+                        <div class="comment-content">
+                          <a
+                            :href="personalPageUrl(c.memberId)"
+                            class="user-name"
+                            >{{c.nickName}}</a
+                          >
+                          <p>{{c.commentContent}}</p>
+                          <div class="comment-time">{{c.commentTime}}</div>
+                        </div>
+                      </div>
+                      <!-- 正在輸入 -->
+                      <div v-show="showTypingStyle[index]" class="typing">
+                        <p class="text-color-blue-l">正在輸入留言 ...</p>
+                      </div>
+                    </div>
+                    <!-- 留言區 -->
+                    <div class="make-comment">
+                      <input
+                        v-model="newComments[index]"
+                        @focus="showTyping(index,p.postId)"
+                        @blur="notTyping(index)"
+                        type="text"
+                        class="comText"
+                        placeholder="留言 ..."
+                      />
+                      <button
+                        @click="sendNewComment(newComments[index],p.postId,index)"
+                        class="sentBt"
+                      >
+                        <i class="bi bi-arrow-right-circle-fill"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- 單篇貼文結束 -->
+              </div>
+            </div>
+          </div>
+          <!-- Modal End -->
+        </div>
+        <!-- 文章區結束 -->
+      </div>
+    </div>
+
+    <script src="./js/personal-page.js"></script>
+  </body>
+</html>

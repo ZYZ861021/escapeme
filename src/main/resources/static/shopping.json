@@ -1,0 +1,75 @@
+[
+    {
+        "id": 1,
+        "imageSrc": "./images/shopping/drink.png",
+        "star": 20,
+        "title": "【Red Bull】能量飲料",
+        "content": "可活化身心並提供你一對翅膀的機能性飲料\n且深受全球頂尖運動員、活躍學生、繁忙專業人士以及長途司機喜愛",
+        "type": 1,
+        "inventory": 99
+    },
+    {
+        "id": 2,
+        "imageSrc": "./images/shopping/cloth.jpg",
+        "star": 150,
+        "title": "【Red Bull】限量T恤",
+        "content": "高品質設計\n修身且極富彈性\n適合運動、休閒穿搭、慢跑",
+        "type": 2,
+        "inventory": 1000
+    },
+    {
+        "id": 3,
+        "imageSrc": "./images/shopping/glass.jpg",
+        "star": 300,
+        "title": "【Red Bull】抗UV太陽眼鏡",
+        "content": "採高規格的防爆偏光鏡片生產製成\n安全抗UV400偏光\n視野舒適超有型！\n",
+        "type": 3,
+        "inventory": 1
+    },
+    {
+        "id": 4,
+        "imageSrc": "./images/shopping/head.jpg",
+        "star": 300,
+        "title": "【Red Bull】紀念棒球帽",
+        "content": "經典紀念，搭配超輕鬆",
+        "type": 2,
+        "inventory": 1000
+    },
+    {
+        "id": 5,
+        "imageSrc": "./images/shopping/ticket.jpg",
+        "star": 500,
+        "title": "【Red Bull】RACING SHOWRUN入場券",
+        "content": "不只是真正的Red Bull Racing頂級方程式賽車，還有Red Bull Racing車手，以及後勤團隊都將完整呈現！",
+        "type": 4,
+        "inventory": 1000
+    },
+    {
+        "id": 6,
+        "imageSrc": "./images/shopping/helment.jpg",
+        "star": 5000,
+        "title": "【Red Bull】Redbull X Aria 限量聯名安全帽",
+        "content": "聯名推出，超限量頂級規格安全帽\n舒適、安全、不易留下異味",
+        "type": 3,
+        "inventory": 1000
+    },
+    {
+        "id": 7,
+        "imageSrc": "./images/shopping/snowGlass.jpg",
+        "star": 900,
+        "title": "【Red Bull】極限滑雪大鏡框防霧雪鏡",
+        "content": "防刮塗層和防霧技術，一起突破雪地極限！",
+        "type": 3,
+        "inventory": 1000
+    },
+    {
+        "id": 8,
+        "imageSrc": "./images/shopping/Red-Bull-Watermelon.png",
+        "star": 100,
+        "title": "【Red Bull】能量飲料--夏日西瓜特別版",
+        "content": "用台灣夏季盛產的西瓜來為大家提供滿滿精神能量，同時消暑解熱",
+        "type": 1,
+        "inventory": 1000
+    }
+]
+

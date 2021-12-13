@@ -1,0 +1,24 @@
+.nav-logo {
+  #logo-img {
+    height: 25px;
+  }
+  #logo-img-s {
+    display: none;
+  }
+}
+
+// ====================================
+//                 RWD
+// ====================================
+
+@media screen and (max-width: 350px) {
+  .nav-logo {
+    #logo-img {
+      display: none;
+    }
+    #logo-img-s {
+      display: block;
+      height: 35px;
+    }
+  }
+}

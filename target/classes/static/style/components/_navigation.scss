@@ -1,0 +1,209 @@
+// ---------------------------
+// 字型變數
+$Pixel_font: "PressStart2P";
+// color set
+$EsME_black: #333533;
+$EsME_gray: #697268;
+$EsME_white: #fef9ef;
+$EsME_yellow: #ffed00;
+$EsME_green: #35c073;
+$EsME_red: #ee6055;
+$EsME_blue: #77b6ea;
+
+$EsME_yellow_light: #fff899;
+$EsME_green_light: #7fdca9;
+$EsME_red_light: #f39991;
+$EsME_blue_light: #95c6ee;
+$EsME_gray_light: #eaecea;
+
+// ---------------------------
+// 此方法可以設定圓形頭像的樣式，參數為頭像遇設定的直徑
+@mixin user-img($imgSize) {
+  width: $imgSize;
+  height: $imgSize;
+  border-radius: 50%;
+  object-fit: cover;
+}
+// 此方法可以直接套用 flex 相關屬性 ( 自動換行 且 垂直水平置中 )
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// ====================複製貼上結束=======================
+
+$Nav_Height: 60px;
+$Rank_Nav_Height: 50px;
+
+nav {
+  height: $Nav_Height;
+  width: 100%;
+  background-color: $EsME_black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+
+  z-index: 10;
+
+  // logo
+  .main_logo {
+    > a {
+      > img {
+        height: 25px;
+        padding-left: 15px;
+      }
+    }
+  }
+
+  //導覽列
+  .navigation {
+    background-color: $EsME_black;
+    width: 100vw;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .nav_items {
+      a {
+        p {
+          font-size: 0px;
+        }
+
+        .bi {
+          color: $EsME_white;
+          font-size: 24px;
+        }
+        // 微調讓這個icon看起來置中
+        .bi-cart{
+          padding-bottom: 3px;
+        }
+
+        img {
+          @include user-img(28px);
+        }
+      }
+    }
+  }
+  .start_btn {
+    background: linear-gradient(115deg, #00c3ff 0%, #ffff1c 100%);
+    margin-right: 15px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+    a {
+      p {
+        font-size: 16px;
+        font-family: $Pixel_font;
+        color: $EsME_white;
+        padding: 7px 15px;
+      }
+    }
+  }
+}
+
+// ----------RWD----------
+// 特殊小螢幕手機
+@media screen and (max-width: 350px) {
+  nav {
+    .main_logo {
+      > a {
+        > img {
+          content: url("../../images/logo/EsME_logo_main.png");
+          height: 35px;
+        }
+      }
+    }
+  }
+}
+
+// 平板以上
+@media screen and (min-width: 992px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+
+    // logo
+    .main_logo {
+      > a {
+        > img {
+          padding-left: 50px;
+        }
+      }
+    }
+
+    .navigation {
+      padding-right: 50px;
+      position: static;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .nav_items {
+        width: 100px;
+        text-align: center;
+        @include flex-center();
+
+        a {
+          @include flex-center();
+          overflow: visible;
+          i {
+            padding-left: 50px;
+            transition: padding 0.5s ease-in-out;
+          }
+          p {
+            padding-left: 5px;
+            color: $EsME_white;
+            min-width: 64px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+          }
+          &:hover i {
+            padding-left: 0px;
+          }
+          &:hover p {
+            opacity: 1;
+          }
+
+          .bi {
+            font-size: 25px;
+          }
+
+          img {
+            @include user-img(35px);
+            &:hover {
+              @include user-img(40px);
+            }
+          }
+        }
+      }
+    }
+    .start_btn_wrap {
+      width: 250px;
+      height: 100px;
+      position: fixed;
+      bottom: 10px;
+      right: 0px;
+      @include flex-center();
+
+      .start_btn {
+        
+        a {
+          p {
+            font-size: 20px;
+            &:hover {
+              font-size: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

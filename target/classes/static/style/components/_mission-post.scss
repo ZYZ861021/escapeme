@@ -1,0 +1,88 @@
+.mission-post {
+  .upload-img-warp {
+    padding: 30px 0 15px;
+    background: linear-gradient(120deg, #a1ffce, #faffd1);
+    background: #ebf4e1;
+    // background: url("../images/background/pixel_bg_sky.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .priview-img-wrap {
+      // border: 1px solid $EsME_gray;
+      height: 300px;
+      width: 300px;
+      background: rgba(255, 255, 255, 0.7);
+      background: url("../images/background/bg_uploadImg.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      margin-bottom: 20px;
+      img {
+        width: 100%;
+        height: 100%;
+        max-height: 300px;
+        object-fit: contain;
+      }
+    }
+    > p {
+      color: $EsME_gray;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+    .upload-img-btn {
+      display: block;
+      @include flex-center();
+      background-color: $EsME_blue;
+      cursor: pointer;
+      padding: 3px 10px;
+      color: white;
+      border-radius: 5px;
+      text-align: center;
+      #upload-img,
+      .upload-img {
+        display: none;
+      }
+      &:hover {
+        background-color: $EsME_green;
+      }
+    }
+  }
+  .upload-context-wrap {
+    padding: 15px;
+    .tag-wrap {
+      margin-top: 10px ;
+      display: flex;
+      align-items: center;
+      button{
+        display: block;
+        margin-right: 10px;
+      }
+      p{
+        color: $EsME_gray;
+      }
+    }
+    > textarea {
+      width: 100%;
+      padding: 10px;
+      border-color: lightgray;
+      border-radius: 5px;
+      margin: 15px 0;
+      resize: none;
+    }
+    > button {
+      display: block;
+      margin: auto;
+      color: white;
+      font-size: 16px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      background-color: $EsME_green;
+      &:hover {
+        background-color: $EsME_blue;
+      }
+    }
+  }
+}

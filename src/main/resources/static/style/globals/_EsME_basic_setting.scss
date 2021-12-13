@@ -1,0 +1,375 @@
+// =============================================
+//                  variables
+// =============================================
+$Nav_Height: 60px;
+$Nav_Bottom_Height: 50px;
+$Nav_padding-s: 20px;
+$Nav_padding-m: 15px;
+$Nav_padding-l: 50px;
+
+$Modal_Header_Height: 50px;
+
+$EsME_black: #333533;
+$EsME_gray: #697268;
+$EsME_white: #fef9ef;
+$EsME_yellow: #ffed00;
+$EsME_green: #35c073;
+$EsME_red: #ee6055;
+$EsME_blue: #77b6ea;
+
+$EsME_yellow_light: #fff899;
+$EsME_green_light: #7fdca9;
+$EsME_red_light: #f39991;
+$EsME_blue_light: #95c6ee;
+$EsME_gray_light: #dfe2df;
+
+// =============================================
+//                    mixins
+// =============================================
+
+// 此方法可以設定圓形頭像的樣式，參數為頭像遇設定的直徑
+@mixin user-img($imgSize) {
+  width: $imgSize;
+  height: $imgSize;
+  border-radius: 50%;
+  object-fit: cover;
+}
+// 此方法可以直接套用 flex 相關屬性 ( 自動換行 且 垂直水平置中 )
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// =============================================
+//                      font
+// =============================================
+// ======font-family======
+html,
+body,
+p,
+input,
+button,
+textarea {
+  font-family: "openhuninn", "NotoSansTC", Tahoma, Verdana, "PingFang TC",
+    "Heiti TC", "微軟正黑體", sans-serif;
+}
+
+.pixel {
+  font-family: "PressStart2P";
+}
+
+// ======line-height & font-size======
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+textarea {
+  line-height: 1.5;
+}
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 20px;
+}
+
+// ======color======
+
+body,
+p,
+a,
+input,
+button,
+textarea {
+  color: $EsME_black;
+}
+input:-webkit-autofill {
+  -webkit-text-fill-color: $EsME_black;
+  &:hover,
+  &:focus,
+  &:active {
+    -webkit-text-fill-color: $EsME_black;
+  }
+}
+
+// =============================================
+//                     others
+// =============================================
+
+// clear default style
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  outline: none;
+}
+
+// input & textarea focus outline
+input,
+textarea {
+  outline: none;
+  &:focus {
+    outline: 2px solid $EsME_blue_light;
+  }
+}
+// scroller bar
+//=======================
+// /* 整個捲軸 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+// /* 捲軸的軌道 */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+// /*捲軸尚未滑到的軌道*/
+::-webkit-scrollbar-track-piece {
+  background: #fff;
+}
+// /* 滑動的區塊 */
+::-webkit-scrollbar-thumb {
+  // background: #bfc5bf;
+  background: $EsME_gray_light;
+  border-radius: 5px;
+}
+// /* 滑鼠移到滑動的區塊上 */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b6fbff, #83a4d4);
+}
+
+// =============================================
+//                background-color
+// =============================================
+
+body {
+  background: $EsME_gray;
+}
+
+// ==================================================
+//            utilities (class names)
+// ==================================================
+
+// =========mission-tag=========
+[class^="mission-tag"] {
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: white;
+  margin-right: 5px;
+}
+// 自我探索
+.mission-tag-1 {
+  background: #ef7a85;
+}
+// 習慣養成
+.mission-tag-2 {
+  background: $EsME_gray;
+}
+// 學習新知
+.mission-tag-3 {
+  background: #56bbaf;
+}
+// 休閒娛樂
+.mission-tag-4 {
+  background: #9ad73a;
+}
+// 藝術
+.mission-tag-5 {
+  background: #f8961e;
+}
+// 美食
+.mission-tag-6 {
+  background: $EsME_red;
+}
+// 運動
+.mission-tag-7 {
+  background: $EsME_blue;
+}
+// 戶外探索
+.mission-tag-8 {
+  background: $EsME_green;
+}
+// 人際互動
+.mission-tag-9 {
+  background: #aa7bc3;
+}
+// 社會服務
+.mission-tag-10 {
+  background: #577590;
+}
+// 人生成就
+.mission-tag-11 {
+  background: linear-gradient(
+    120deg,
+    $EsME_red,
+    $EsME_yellow,
+    $EsME_green,
+    $EsME_blue
+  );
+}
+
+// =========sticky-note=========
+[class^="sticky-note"] {
+  height: 50px;
+  // box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.sticky-note-yellow {
+  background: linear-gradient(
+    90deg,
+    $EsME_white 0%,
+    $EsME_white 80%,
+    $EsME_yellow_light 80%,
+    $EsME_yellow_light 93%,
+    $EsME_red_light 93%,
+    $EsME_red_light 100%
+  );
+}
+.sticky-note-red {
+  background: linear-gradient(
+    90deg,
+    $EsME_white 0%,
+    $EsME_white 80%,
+    $EsME_red_light 80%,
+    $EsME_red_light 93%,
+    $EsME_yellow_light 93%,
+    $EsME_yellow_light 100%
+  );
+}
+.sticky-note-green {
+  background: linear-gradient(
+    270deg,
+    $EsME_white 0%,
+    $EsME_white 80%,
+    $EsME_green_light 80%,
+    $EsME_green_light 93%,
+    $EsME_blue_light 93%,
+    $EsME_blue_light 100%
+  );
+}
+.sticky-note-blue {
+  background: linear-gradient(
+    270deg,
+    $EsME_white 0%,
+    $EsME_white 80%,
+    $EsME_blue_light 80%,
+    $EsME_blue_light 93%,
+    $EsME_yellow_light 93%,
+    $EsME_yellow_light 100%
+  );
+}
+// ===============padding-b==============
+@media screen and (max-width: 992px) {
+  .padding-b {
+    padding-bottom: ($Nav_Bottom_Height + 10px);
+  }
+}
+
+// ===============mb-0==============
+
+.mb-0{
+  margin-bottom: 0 !important;
+}
+
+
+// ===============text-color==============
+.text-color-red {
+  color: $EsME_red;
+}
+.text-color-yellow {
+  color: $EsME_yellow;
+}
+.text-color-green {
+  color: $EsME_green;
+}
+.text-color-blue {
+  color: $EsME_blue;
+}
+.text-color-gray {
+  color: $EsME_gray;
+}
+.text-color-black {
+  color: $EsME_black;
+}
+.text-color-white {
+  color: $EsME_white;
+}
+.tc-w {
+  color: white;
+}
+// ========light========
+.text-color-red-l {
+  color: $EsME_red_light;
+}
+.text-color-yellow-l {
+  color: $EsME_yellow_light;
+}
+.text-color-green-l {
+  color: $EsME_green_light;
+}
+.text-color-blue-l {
+  color: $EsME_blue_light;
+}
+.text-color-gray-l {
+  color: $EsME_gray_light;
+}
+// ===============background-color==============
+.bg-black {
+  background-color: $EsME_black;
+}
+.bg-white {
+  background-color: $EsME_white;
+}
+.bg-gray {
+  background-color: $EsME_gray !important;
+}
+.bg-blue {
+  background-color: $EsME_blue;
+}
+.bg-green {
+  background-color: $EsME_green;
+}
+.bg-yellow {
+  background-color: $EsME_yellow;
+}
+.bg-red {
+  background-color: $EsME_red;
+}
+
+// ========light========
+
+.bg-gray-l {
+  background-color: $EsME_gray_light;
+}
+.bg-blue-l {
+  background-color: $EsME_blue_light;
+}
+.bg-green-l {
+  background-color: $EsME_green_light;
+}
+.bg-yellow-l {
+  background-color: $EsME_yellow_light;
+}
+.bg-red-l {
+  background-color: $EsME_red_light;
+}
+
+// ===============user-img===============
+.user-img-30 {
+  @include user-img(30px);
+}
+.user-img-40 {
+  @include user-img(40px);
+}
+.user-img-50 {
+  @include user-img(50px);
+}

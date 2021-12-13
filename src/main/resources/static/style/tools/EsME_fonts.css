@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "PressStart2P";
+    src: url("./fonts/PressStart2P-Regular.ttf") format("truetype"),
+      url("./fonts/PressStart2P-Regular.eot") format("embedded-opentype"),
+      url("./fonts/PressStart2P-Regular.otf") format("opentype"),
+      url("./fonts/PressStart2P-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "NotoSansTC";
+    src: url("./fonts/NotoSansTC-Regular.otf") format("opentype"),
+      url("./fonts/NotoSansTC-Regular.eot") format("embedded-opentype"),
+      url("./fonts/NotoSansTC-Regular.ttf") format("truetype"),
+      url("./fonts/NotoSansTC-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "openhuninn";
+    src: url("./fonts/jf-openhuninn-1.1.ttf") format("truetype"),
+      url("./fonts/jf-openhuninn-1.1.eot") format("embedded-opentype"),
+      url("./fonts/jf-openhuninn-1.1.otf") format("opentype"),
+      url("./fonts/jf-openhuninn-1.1.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }

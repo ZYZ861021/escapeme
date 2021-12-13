@@ -1,0 +1,72 @@
+.post-modal {
+  // Hidden by default
+  display: block;
+  position: fixed;
+  z-index: 101;
+  // Location of the box
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  // 背景顏色設定
+  background-color: rgba(0, 0, 0, 0.8);
+
+  // Modal Content
+  .modal-content {
+    position: relative;
+    background-color: $EsME_gray_light;
+    margin: 0 auto;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // animation-name: animatetop;
+    // animation-duration: 0.4s;
+
+    // Modal Header
+    .modal-header {
+      height: $Modal_Header_Height;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 25px;
+      background-color: $EsME_gray;
+      font-size: 20px;
+      color: white;
+
+      // Close Button
+      .bi-x-circle {
+        color: white;
+        font-size: 30px;
+        &:hover,
+        &:focus {
+          color: $EsME_yellow;
+        }
+      }
+    }
+
+    .modal-body {
+      height: calc(100vh - #{$Modal_Header_Height});
+      overflow: auto;
+      // @include flex-center();
+    }
+  }
+}
+
+//   ===============================
+//                 RWD
+//   ===============================
+
+@media screen and (min-width: 768px) {
+  .post-modal {
+    padding-top: ($Nav_Height + 50px);
+    .modal-content {
+      width: 80%;
+      max-width: 1200px;
+      height: auto;
+      overflow: auto;
+    }
+    .modal-body {
+      max-height: ($Modal_Header_Height + 480px);
+      overflow: auto;
+    }
+  }
+}

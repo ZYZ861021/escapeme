@@ -1,0 +1,81 @@
+// ==================================
+@import "./small_components/setting-or-follow";
+// ==================================
+.personal-intro-wrap {
+  width: 100%;
+  position: relative;
+
+  .img-name-achieve {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 0px 0px;
+
+    .img-name-wrap {
+      @include flex-center();
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+      .personal-img {
+        @include user-img(80px);
+      }
+      .user-name {
+        font-size: 20px;
+        color: $EsME_gray;
+      }
+    }
+    .achieve {
+      margin: 10px 0;
+      margin-bottom: 0px;
+      display: flex;
+      justify-content: space-around;
+      .achieve-item {
+        width: 15%;
+        .data {
+          font-family: "PressStart2P";
+          font-size: 14px;
+          margin-bottom: 5px;
+        }
+
+        > p {
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .self-introduction {
+    padding: 20px 5px;
+    margin: 15px;
+    border-top: 1px solid $EsME_gray_light;
+    border-bottom: 1px solid $EsME_gray_light;
+  }
+}
+
+// ==============================
+//             RWD
+// ==============================
+
+@media screen and (min-width: 768px) {
+  .personal-intro-wrap {
+    .img-name-achieve {
+      width: 50%;
+      max-width: 600px;
+    }
+    .self-introduction {
+      padding: 20px 3%;
+    }
+    .img-name-achieve {
+      .achieve {
+        .achieve-item {
+          .data {
+            font-family: "PressStart2P";
+            font-size: 16px;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}

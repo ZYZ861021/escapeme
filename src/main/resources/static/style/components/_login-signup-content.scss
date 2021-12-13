@@ -1,0 +1,51 @@
+// =============================================
+
+$login-signup-img-height-s: 110px;
+$login-signup-img-height-m: 140px;
+$login-signup-img-height-l: 200px;
+
+@import "./small_components/login-signup-form";
+
+// This changes all the animations
+:root {
+    --animate-duration: 2000ms;
+    --animate-delay: 0s;
+  }
+
+// =============================================
+
+.login-signup-content {
+  text-align: center;
+  .login-signup-img {
+    img {
+      width: $login-signup-img-height-m;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .login-signup-content {
+    .pixel {
+      font-size: 20px;
+    }
+    .login-signup-img {
+      img {
+        width: $login-signup-img-height-s;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .login-signup-content {
+    @include flex-center();
+    gap: 80px;
+    .login-signup-img {
+      img {
+        width: $login-signup-img-height-l;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

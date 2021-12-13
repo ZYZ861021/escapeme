@@ -1,0 +1,381 @@
+// ====================================
+// 行動裝置不顯示(1200px以下不顯示)
+@media screen and (max-width: 1200px) {
+  .rpg-canvas {
+    display: none;
+  }
+}
+
+// ====================================
+
+.rpg-canvas {
+  position: relative;
+  background-image:url("../images/background/pixel_bg_sky.png");
+  background-size: contain;
+}
+canvas {
+  display: block;
+  margin: 0 auto;
+  background-image: url("../images/background/EsME_RPGMap.png");
+  background-size: contain;
+}
+
+.talkBox {
+  @include flex-center();
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  transform: translate(-50%, 0%);
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 100px;
+  width: 850px;
+  border: 1px solid $EsME_gray;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+//======================0
+.animate0 {
+  width: 3.5ch;
+  // border-right: 0.1em solid $EsME_white;
+  animation: type0 0.5s steps(6) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate0::before {
+  content: "⋯⋯";
+  // animation: type 1s steps(4) 3s forwards;
+}
+
+@keyframes type0 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 3.5ch;
+  }
+}
+//======================1
+.animate {
+  width: 45ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type 1.5s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate::before {
+  content: "歡迎來到 Escape ME！請按 ↑ → ↓ ← 移動為您進行導覽！";
+  // animation: type 1s steps(4) 3s forwards;
+}
+
+@keyframes type {
+  from {
+    width: 0;
+  }
+  to {
+    width: 45ch;
+  }
+}
+//========================2
+.animate1 {
+  width: 30ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type1 1.5s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate1::before {
+  content: "做得好！目標是右邊紅旗，繼續前進吧！";
+  // animation: type 1s steps(4) 3s forwards;
+}
+
+@keyframes type1 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 30ch;
+  }
+}
+//========================3
+.animate2 {
+  width: 16ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type2 1s steps(10) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate2::before {
+  content: "下面好像有東西（？";
+}
+
+@keyframes type2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 16ch;
+  }
+}
+//========================4
+.animate3 {
+  width: 66ch;
+  font-size: 18px;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type3 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate3::before {
+  content: "此專案為 國立臺北科技大學 Java & Android 程式設計人才養成班 017 期 第二組 專題製作";
+}
+
+@keyframes type3 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 66ch;
+  }
+}
+//========================5
+.animate4 {
+  width: 47ch;
+  font-size: 18px;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type4 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate4::before {
+  content: "專題成員：鄭忠穎｜林君霓｜詹智鈞｜林泓燁｜林大祐｜顏廷勳";
+}
+
+@keyframes type4 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 47ch;
+  }
+}
+//========================6
+.animate5 {
+  width: 58ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type5 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate5::before {
+  content: "Escape ME 是一個創新的社交平台⋯⋯鼓勵使用者跳脫舒適圈，發現自我潛能。";
+}
+
+@keyframes type5 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 58ch;
+  }
+}
+//========================7
+.animate6 {
+  width: 42ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type6 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate6::before {
+  content: "不知你是否常常覺得生活很乏味，總是在做重複的事情？";
+}
+
+@keyframes type6 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 42ch;
+  }
+}
+//========================8
+.animate7 {
+  width: 49ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type7 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate7::before {
+  content: "只要你願意，我們提供你各種主題任務等你來挑戰！豐富你的生活！";
+}
+
+@keyframes type7 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 49ch;
+  }
+}
+//========================9
+.animate8 {
+  width: 27ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type8 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate8::before {
+  content: "在這裡，每天都可以抽取不同的任務";
+}
+
+@keyframes type8 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 27ch;
+  }
+}
+//========================10
+.animate9 {
+  width: 34ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type9 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate9::before {
+  content: "我們有不同主題超過 100 項任務等你來完成！";
+}
+
+@keyframes type9 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 34ch;
+  }
+}
+
+//========================11
+.animate10 {
+  width: 35ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type10 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate10::before {
+  content: "完成任務發文，可以分享給來自各地的使用者...";
+}
+
+@keyframes type10 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 35ch;
+  }
+}
+
+//========================12
+.animate11 {
+  width: 42ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type11 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate11::before {
+  content: "你也可以查看其他人完成的任務，互相交流認識新朋友！";
+}
+
+@keyframes type11 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 42ch;
+  }
+}
+
+//========================13
+.animate12 {
+  width: 40ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type12 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate12::before {
+  content: "除此之外，完成不同任務難度可以獲得不同數量的星星";
+}
+
+@keyframes type12 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 40ch;
+  }
+}
+
+//========================14
+.animate13 {
+  width: 41ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type13 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate13::before {
+  content: "獲得的星星數越多就有機會上達人榜，讓更多人認識你！";
+}
+
+@keyframes type13 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 41ch;
+  }
+}
+//========================15
+.animate14 {
+  width: 28ch;
+  border-right: 0.1em solid $EsME_gray;
+  animation: type14 2s steps(20) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animate14::before {
+  content: "恭喜你完成介紹，現在就加入我們吧！";
+}
+
+@keyframes type14 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 28ch;
+  }
+}

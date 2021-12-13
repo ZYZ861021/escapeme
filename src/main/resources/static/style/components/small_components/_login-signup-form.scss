@@ -1,0 +1,64 @@
+$input_button_width_m: 250px;
+$input_button_width_s: 220px;
+$input_button_height: 40px;
+
+.login-signup-form {
+  text-align: center;
+  input,
+  button {
+    display: block;
+    margin: 20px auto 5px;
+    padding: 0 20px;
+    width: $input_button_width_m;
+    height: $input_button_height;
+    border: none;
+    border-radius: 15px;
+  }
+  input {
+    background-color: $EsME_yellow_light;
+    &:-webkit-autofill {
+      box-shadow: 0 0 0 30px $EsME_yellow_light inset;
+    }
+  }
+  button {
+    margin-bottom: 20px;
+    background-color: $EsME_blue;
+    color: $EsME_white;
+  }
+  a,
+  p {
+    color: $EsME_gray;
+    font-size: 15px;
+  }
+  .input-error {
+    color: $EsME_red;
+    margin: 0;
+  }
+}
+
+// =========================================================
+
+@media screen and (max-width: 350px) {
+  .login-signup-form {
+    input,
+    button {
+      width: $input_button_width_s;
+      font-size: 14px;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .login-signup-form {
+    button {
+      font-size: 18px;
+      transition: all 0.3s 0s ease;
+      &:hover {
+        background-color: $EsME_green;
+      }
+    }
+    a:hover {
+      transition: all 0.3s 0s ease;
+      color: $EsME_green;
+    }
+  }
+}

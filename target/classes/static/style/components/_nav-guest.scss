@@ -1,0 +1,50 @@
+@import "./small_components/nav-logo-img";
+// 訪客模式的導覽列
+.nav-guest {
+  height: $Nav_Height;
+  background-color: $EsME_black;
+  width: 100%;
+  padding: 0px $Nav_padding-m;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  font-size: 0px;
+  z-index: 100;
+  .nav-items {
+    a,
+    p {
+      font-size: 18px;
+      color: $EsME_white;
+      display: inline;
+    }
+  }
+}
+
+// ====================================
+//                 RWD
+// ====================================
+
+@media screen and (max-width: 350px) {
+  .nav-guest {
+    padding: 0px $Nav_padding-s;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav-guest {
+    padding: 0px $Nav_padding-l;
+    .nav-items {
+      a,
+      p {
+        font-size: 20px;
+        transition: all 0.5s 0s ease;
+      }
+      a:hover {
+        color: $EsME_yellow;
+        font-size: 22px;
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escape ME | 跳脫舒適圈的社交平台 | 數量統計</title>
+    <meta
+      name="description"
+      content="一款全新概念的社交平台。「常常覺得生活沒有目標嗎？」Escape ME 提供你各式任務、冒險、挑戰等你去完成，藉此跳脫舒適圈，更發現自己的潛能。"
+    />
+    <link rel="shortcut icon" href="./images/favicon.ico" />
+    <link rel="bookmark" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="./style/tools/bootstrap_icons.css" />
+    <link rel="stylesheet" href="./style/tools/EsME_fonts.css" />
+    <link rel="stylesheet" href="./style/EscapeME.css" />
+    <script src="./js/vue.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+  <body>
+    <!-- 導覽列 -->
+    <nav class="navigation">
+      <!--logo img -->
+      <div class="nav-logo">
+        <a href="./about.html">
+          <img id="logo-img" src="./images/logo/logo_rec.png " />
+          <img id="logo-img-s" src="./images/logo/EsME_logo_main.png" />
+        </a>
+      </div>
+      <!-- nav icon -->
+      <div class="nav-wrap">
+        <div class="nav-item">
+          <a href="index.html">
+            <i class="bi bi-house-fill"></i>
+            <p>HOME</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="./search.html">
+            <i class="bi bi-search"></i>
+            <p>FIND</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="rank.html">
+            <i class="bi bi-trophy"></i>
+            <p>RANK</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="./shopping.html">
+            <i class="bi bi-cart"></i>
+            <p>SHOP</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <div class="personal-img-border">
+            <a href="personal_page.html">
+              <img :src="userImgSrc" alt="個人頭像" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- start btn -->
+      <div class="start-btn-wrap">
+        <div class="start-btn">
+          <a href="./mission.html">
+            <p class="pixel text-color-white">▶︎ Start</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- 導覽列結束 -->
+    <div id="missionCountApp">
+      <div class="main">
+        <div class="missionCountTitle">
+          <img :src="userImgSrc" alt="個人頭像" />
+          <!-- <img src="./images/EsMEKitty/EsME_Kitty_01.png" alt="個人頭像" /> -->
+          <h1>任務統計</h1>
+        </div>
+        <div id="barchart_material" class="barchart"></div>
+      </div>
+    </div>
+    <script src="./js/missionCount.js"></script>
+  </body>
+</html>

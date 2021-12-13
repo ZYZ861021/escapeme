@@ -1,0 +1,54 @@
+// =============================
+@import "./small_components/single-comment";
+// =============================
+.comment-wrap {
+  border-top: $EsME_gray_light 1px solid;
+  width: 100%;
+  .comments {
+    padding: 15px;
+    height: 150px;
+    overflow: auto;
+  }
+  .typing{
+    margin-top: 20px;
+  }
+  .make-comment {
+    border-top: 1px solid $EsME_gray_light;
+    padding: 5px;
+    width: 100%;
+    @include flex-center();
+    gap: 15px;
+    .comText {
+      display: block;
+      padding: 0px 15px;
+      height: 35px;
+      width: calc(100% - 60px);     
+      font-size: 16px;
+      border: none;
+      border-radius: 15px;
+      color: $EsME_black;
+      background: linear-gradient(90deg, #a1ffce, #faffd1);
+    }
+    .sentBt {
+      color: $EsME_blue;
+      .bi {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+// ============================
+//             RWD
+// ============================
+@media screen and (min-width: 992px) {
+  .comment-wrap {
+    border-top: $EsME_gray_light 1px solid;
+    width: 100%;
+    .comments {
+      padding: 15px;
+      height: 126px;
+      overflow: auto;
+    }
+  }
+}

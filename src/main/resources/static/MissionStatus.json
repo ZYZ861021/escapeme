@@ -1,0 +1,12 @@
+{
+    "isShow": true,
+    "missionLeft": 2,
+    "mission": {
+        "missionId": "1",
+        "type": "mission-tag-1",
+        "title": "自我探索",
+        "quest": "給十年後的自己",
+        "star": "2",
+        "missionContent": "是否想過十年後的自己會是什麼模樣，在做什麼呢？靜下心來寫封信給未來的自己吧！如果可以的話就順便把它寄出吧！相信未來的你收到一定會有很多感觸的。"
+    }
+}

@@ -1,0 +1,13 @@
+.main-with-bg-mission {
+  min-height: 100vh;
+  padding-top: ($Nav_Height + 10px);
+  padding-bottom: ($Nav_Height + 10px);
+  background: url("../images/background/EsME_RPGMap.png");
+  //   background: url("../../images/background/pixel_bg_43_empty.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  @include flex-center();
+  flex-direction: column;
+}

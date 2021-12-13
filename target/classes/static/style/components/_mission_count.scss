@@ -1,0 +1,21 @@
+.missionCountTitle {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  img {
+    border: 2px solid #fef9ef;
+    height: 80px;
+    border-radius: 50%;
+  }
+  h1 {
+    margin-left: 15px;
+    line-height: 80px;
+  }
+}
+.barchart {
+  margin: 0 auto;
+  height: 500px;
+  width: 800px;
+}

@@ -1,0 +1,16 @@
+.main{
+    background: white;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: $Nav_Height;
+    padding-bottom: ( $Nav_Bottom_Height + 20px );
+    position: relative;
+}
+@media screen and (min-width: 992px){
+    .main{
+        width: 90%;
+        margin: 0 auto;
+        padding-bottom: 0px;
+    }
+    
+}

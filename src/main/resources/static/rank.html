@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escape ME | 跳脫舒適圈的社交平台 | 排行</title>
+    <meta
+      name="description"
+      content="一款全新概念的社交平台。「常常覺得生活沒有目標嗎？」Escape ME 提供你各式任務、冒險、挑戰等你去完成，藉此跳脫舒適圈，更發現自己的潛能。"
+    />
+    <link rel="shortcut icon" href="./images/favicon.ico" />
+    <link rel="bookmark" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="./style/tools/bootstrap_icons.css" />
+    <link rel="stylesheet" href="./style/tools/EsME_fonts.css" />
+    <link rel="stylesheet" href="./style/EscapeME.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 導覽列 -->
+      <nav class="navigation">
+        <!--logo img -->
+        <div class="nav-logo">
+          <a href="./about.html">
+            <img id="logo-img" src="./images/logo/logo_rec.png " />
+            <img id="logo-img-s" src="./images/logo/EsME_logo_main.png" />
+          </a>
+        </div>
+        <!-- nav icon -->
+        <div class="nav-wrap">
+          <div class="nav-item">
+            <a href="index.html">
+              <i class="bi bi-house"></i>
+              <p>HOME</p>
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="./search.html">
+              <i class="bi bi-search"></i>
+              <p>FIND</p>
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="rank.html">
+              <i class="bi bi-trophy-fill"></i>
+              <p>RANK</p>
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="./shopping.html">
+              <i class="bi bi-cart"></i>
+              <p>SHOP</p>
+            </a>
+          </div>
+          <div class="nav-item">
+            <div class="personal-img-border">
+              <a href="personal_page.html">
+                <img :src="userImgSrc" alt="個人頭像" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- start btn -->
+        <div class="start-btn-wrap">
+          <div class="start-btn">
+            <a href="./mission.html">
+              <p class="pixel text-color-white">▶︎ Start</p>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <!-- 導覽列結束 -->
+      <!-- 主要內容 -->
+      <div class="main bg-gray">
+        <div class="tab-wrap">
+          <input type="radio" name="tabs" id="tab1" checked />
+          <div class="tab-label-content" id="tab1-content">
+            <label for="tab1"><i class="bi bi-heart-fill"></i></label>
+            <div class="tab-content">
+              <!-- 文章區 -->
+              <div class="post-cards">
+                <!-- 貼文1 -->
+                <div
+                  v-for="(p,index) in posts"
+                  :key="p.postId"
+                  class="single-post-card"
+                >
+                  <div class="post-user-info">
+                    <div>
+                      <a :href="personalPageUrl(p.memberId)">
+                        <img :src="p.userImgSrc" />
+                      </a>
+                      <a class="user-name" :href="personalPageUrl(p.memberId)"
+                        >{{p.nickName}}</a
+                      >
+                    </div>
+                    <div>
+                      <i class="bi bi-three-dots-vertical"></i>
+                    </div>
+                  </div>
+                  <div class="post-mission">
+                    <button :class="p.type">{{p.title}}</button>
+                    <a href="javascript:;" class="mission-name">
+                      # {{p.quest}}
+                    </a>
+                  </div>
+
+                  <div class="post-img">
+                    <img @click="showModal(index)" :src="p.postImgSrc" />
+                  </div>
+
+                  <div class="like-comment-and-time">
+                    <div class="like-comment">
+                      <div>
+                        <button @click="changeIsLike(p,p.postId)">
+                          <i v-if="p.isLike" class="bi bi-heart-fill like"></i>
+                          <i v-else class="bi bi-heart like"></i>
+                        </button>
+                        <p class="like">{{p.likeCount}}</p>
+                      </div>
+                      <div>
+                        <i
+                          @click="showModal(index)"
+                          class="bi bi-chat comment"
+                        ></i>
+                        <p class="comment">{{p.commentCount}}</p>
+                      </div>
+                    </div>
+                    <div class="post-time">{{p.postTime}}</div>
+                  </div>
+                </div>
+                <!-- 貼文結束 -->
+
+                <!-- Modal -->
+                <div
+                  v-show="postModalDisplay[index]"
+                  v-for="(p,index) in posts"
+                  :key="index"
+                  class="post-modal"
+                >
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <div>查看貼文</div>
+                      <div>
+                        <i
+                          @click="closeModal(index)"
+                          class="close bi bi-x-circle"
+                        ></i>
+                      </div>
+                    </div>
+                    <div class="modal-body">
+                      <!-- 單篇貼文開始 -->
+                      <div class="single-post-with-comment mb-0">
+                        <div class="post-user-info">
+                          <div>
+                            <a :href="personalPageUrl(p.memberId)">
+                              <img :src="p.userImgSrc" />
+                            </a>
+                            <a
+                              class="user-name"
+                              :href="personalPageUrl(p.memberId)"
+                              >{{p.nickName}}</a
+                            >
+                          </div>
+                          <div>
+                            <i class="bi bi-three-dots-vertical"></i>
+                          </div>
+                        </div>
+                        <div class="post-mission">
+                          <button :class="p.type">{{p.title}}</button>
+                          <a href="javascript:;" class="mission-name">
+                            # {{p.quest}}
+                          </a>
+                        </div>
+                        <!-- 圖片 -->
+                        <div class="post-img">
+                          <img :src="p.postImgSrc" />
+                        </div>
+                        <div class="like-comment-and-time">
+                          <div class="like-comment">
+                            <div>
+                              <button @click="changeIsLike(p,p.postId)">
+                                <i
+                                  v-if="p.isLike"
+                                  class="bi bi-heart-fill like"
+                                ></i>
+                                <i v-else class="bi bi-heart like"></i>
+                              </button>
+                              <p class="like">{{p.likeCount}}</p>
+                            </div>
+                            <div>
+                              <i class="bi bi-chat comment"></i>
+                              <p class="comment">{{p.commentCount}}</p>
+                            </div>
+                          </div>
+                          <div class="post-time">{{p.postTime}}</div>
+                        </div>
+
+                        <!-- 文章內文 -->
+                        <div class="post-article">
+                          <p>{{p.postContent}}</p>
+                        </div>
+
+                        <!-- 留言 -->
+                        <div class="comment-wrap">
+                          <div class="comments" :id="p.postId">
+                            <!-- 單篇留言 -->
+                            <div
+                              v-for="(c,index) in p.comments"
+                              :key="index"
+                              class="single-comment"
+                            >
+                              <div class="comment-user-img">
+                                <a :href="personalPageUrl(c.memberId)">
+                                  <img :src="c.userImgSrc" />
+                                </a>
+                              </div>
+                              <div class="comment-content">
+                                <a
+                                  :href="personalPageUrl(c.memberId)"
+                                  class="user-name"
+                                  >{{c.nickName}}</a
+                                >
+                                <p>{{c.commentContent}}</p>
+                                <div class="comment-time">
+                                  {{c.commentTime}}
+                                </div>
+                              </div>
+                            </div>
+                            <!-- 正在輸入 -->
+                            <div v-show="showTypingStyle[index]" class="typing">
+                              <p class="text-color-blue-l">正在輸入留言 ...</p>
+                            </div>
+                          </div>
+                          <!-- 留言區 -->
+                          <div class="make-comment">
+                            <input
+                              v-model="newComments[index]"
+                              @focus="showTyping(index,p.postId)"
+                              @blur="notTyping(index)"
+                              type="text"
+                              class="comText"
+                              placeholder="留言 ..."
+                            />
+                            <button
+                              @click="sendNewComment(newComments[index],p.postId,index)"
+                              class="sentBt"
+                            >
+                              <i class="bi bi-arrow-right-circle-fill"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 單篇貼文結束 -->
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal End -->
+              </div>
+            </div>
+          </div>
+
+          <input type="radio" name="tabs" id="tab2" />
+          <div class="tab-label-content" id="tab2-content">
+            <label for="tab2"><i class="bi bi-star-fill"></i></label>
+            <div class="tab-content">
+              <!-- 星星數排行 -->
+              <div class="star-rank">
+                <!-- 前三 -->
+                <div class="top-three">
+                  <div class="t3 second">
+                    <div>
+                      <a :href="personalPageUrl(users[1].memberId)">
+                        <img :src="showImg(1)" />
+                      </a>
+                      <p>2</p>
+                    </div>
+                  </div>
+                  <div class="t3 first">
+                    <div>
+                      <a :href="personalPageUrl(users[0].memberId)">
+                        <img :src="showImg(0)" alt="" />
+                      </a>
+                      <p>1</p>
+                    </div>
+                  </div>
+                  <div class="t3 third">
+                    <div>
+                      <a :href="personalPageUrl(users[2].memberId)">
+                        <img :src="showImg(2)" alt="" />
+                      </a>
+                      <p>3</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- 前50 -->
+                <div class="top-50">
+                  <div
+                    v-for="(u,index) in users"
+                    :key="u.memberId"
+                    class="top-50-item"
+                  >
+                    <div class="rank-user-info">
+                      <p class="rank">{{u.rank}}</p>
+                      <a :href="personalPageUrl(u.memberId)">
+                        <img :src="u.userImgSrc" />
+                      </a>
+                      <a :href="personalPageUrl(u.memberId)" class="user-name">
+                        {{u.nickName}}
+                      </a>
+                    </div>
+                    <div>
+                      <p>{{u.starCount}}★</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/rank.js"></script>
+  </body>
+</html>

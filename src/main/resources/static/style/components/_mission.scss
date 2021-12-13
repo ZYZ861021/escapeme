@@ -1,0 +1,157 @@
+.mission-left-and-new-mission {
+  margin-bottom: 30px;
+  > p {
+    text-align: center;
+    > span {
+      font-size: 10px;
+      color: $EsME_gray;
+    }
+  }
+}
+.new-mission-btn-space {
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+
+  @include flex-center();
+
+  .new-mission-btn {
+    color: white;
+    font-size: 20px;
+    display: block;
+    height: 90px;
+    width: 90px;
+    background-color: $EsME_red;
+    border-radius: 50%;
+    border: 3px dashed $EsME_yellow;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    &:hover {
+      background-color: orange;
+      height: 100px;
+      width: 100px;
+    }
+  }
+}
+[class^="mission-box"] {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 8px;
+  border-radius: 5px;
+  height: 500px;
+  width: 350px;
+}
+.mission-box {
+  .transparent-border {
+    border: 10px solid rgba(255, 255, 255, 0.35);
+  }
+  .mission-card-top {
+    height: 150px;
+    background: white;
+    border-radius: 5px 5px 0px 0px;
+    border: 1px solid $EsME_gray;
+    position: relative;
+    @include flex-center();
+    button {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+    h1 {
+      color: gold;
+      font-size: 55px;
+      position: absolute;
+      left: 25px;
+      top: 10px;
+    }
+    p {
+      font-size: 25px;
+      color: $EsME_gray;
+      margin-top: 75px;
+    }
+  }
+  .mission-card-bottom {
+    border: 1px solid $EsME_gray;
+    border-top: none;
+    border-radius: 0px 0px 5px 5px;
+    height: 330px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: conic-gradient(
+      $EsME_yellow_light 0,
+      $EsME_yellow_light 45deg,
+      $EsME_gray 45deg,
+      $EsME_gray 90deg,
+      $EsME_gray_light 90deg,
+      $EsME_gray_light 135deg,
+      $EsME_red_light 135deg,
+      $EsME_red_light 180deg,
+      $EsME_yellow_light 180deg,
+      $EsME_yellow_light 225deg,
+      $EsME_gray 225deg,
+      $EsME_gray 270deg,
+      $EsME_gray_light 270deg,
+      $EsME_gray_light 315deg,
+      $EsME_red_light 315deg,
+      $EsME_red_light 360deg
+    );
+
+    .mission-intro {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 5px;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+        rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+      height: 250px;
+      margin: 0 auto;
+      padding: 15px;
+      overflow: auto;
+      p {
+        color: $EsME_gray;
+      }
+    }
+    button {
+      text-align: center;
+      background: #00afb9;
+      color: white;
+      font-size: 18px;
+      padding: 10px 25px;
+      border-radius: 15px;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+        rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+      &:hover {
+        background: $EsME_green;
+      }
+    }
+  }
+}
+.mission-box-0 {
+  background: $EsME_gray_light;
+  opacity: 0.6;
+  @include flex-center();
+  .addMission {
+    font-size: 150px;
+    color: white;
+  }
+}
+
+.other-missions {
+  width: 100%;
+  padding: 30px 20px;
+  background: $EsME_white;
+  text-align: center;
+  > h1 {
+    margin: 30px;
+    color: $EsME_red;
+    padding-bottom: 20px;
+    border-bottom: 3px dotted $EsME_gray;
+  }
+  .life-missions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 30px auto;
+  }
+}

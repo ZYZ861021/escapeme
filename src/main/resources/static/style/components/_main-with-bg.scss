@@ -1,0 +1,12 @@
+.main-with-bg {
+  min-height: 100vh;
+  padding-top: ($Nav_Height + 20px);
+  padding-bottom: ($Nav_Height + 70px);
+  background: url("../images/background/pixel_bg_43_empty.png");
+//   background: url("../../images/background/pixel_bg_sky.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+
+  @include flex-center();
+}

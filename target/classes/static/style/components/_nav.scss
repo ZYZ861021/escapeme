@@ -1,0 +1,147 @@
+// ======================================
+@import "./small_components/nav-logo-img";
+// ======================================
+.navigation {
+  height: $Nav_Height;
+  background-color: $EsME_black;
+  width: 100%;
+  padding: 0px $Nav_padding-m;
+  position: fixed;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  z-index: 100;
+
+  .start-btn {
+    // background: linear-gradient(115deg, #00c3ff 0%, #ffff1c 100%);
+    background: linear-gradient(
+      130deg,
+      $EsME_red,
+      $EsME_yellow,
+      $EsME_green,
+      $EsME_blue
+    );
+
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+    a {
+      p {
+        font-size: 16px;
+        padding: 7px 15px;
+        text-shadow: 3px 4px 4px rgba(150, 150, 150, 0.7);
+      }
+    }
+  }
+  .nav-wrap {
+    height: $Nav_Bottom_Height;
+    background-color: $EsME_black;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .nav-item {
+      a {
+        p {
+          font-size: 0px;
+        }
+
+        .bi {
+          color: $EsME_white;
+          font-size: 22px;
+        }
+        // 微調讓這個icon看起來置中
+        .bi-cart {
+          padding-bottom: 3px;
+        }
+
+        img {
+          @include user-img(28px);
+        }
+      }
+    }
+  }
+}
+// =====================================
+
+@media screen and (max-width: 350px) {
+  .navigation {
+    padding: 0px $Nav_padding-s;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .navigation {
+    padding: 0px $Nav_padding-l;
+    .start-btn-wrap {
+      width: 250px;
+      height: 100px;
+      position: fixed;
+      bottom: 10px;
+      right: 0px;
+      @include flex-center();
+
+      .start-btn {
+        a {
+          p {
+            font-size: 20px;
+            &:hover {
+              font-size: 22px;
+            }
+          }
+        }
+      }
+    }
+
+    .nav-wrap {
+      position: static;
+      display: flex;
+      justify-content: flex-end;
+      .nav-item {
+        width: 100px;
+        @include flex-center();
+
+        > a {
+          @include flex-center();
+          overflow: visible;
+          i {
+            padding-left: 50px;
+            transition: padding 0.5s ease-in-out;
+          }
+          p {
+            padding-left: 5px;
+            color: $EsME_white;
+            // min-width: 65px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+          }
+          &:hover i {
+            padding-left: 0px;
+          }
+          &:hover p {
+            opacity: 1;
+          }
+
+          .bi {
+            font-size: 25px;
+          }
+        }
+        .personal-img-border {
+          img {
+            @include user-img(35px);
+            &:hover {
+              border: 2px solid $EsME_white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escape ME | 跳脫舒適圈的社交平台 | 導覽</title>
+    <meta
+      name="description"
+      content="一款全新概念的社交平台。「常常覺得生活沒有目標嗎？」Escape ME 提供你各式任務、冒險、挑戰等你去完成，藉此跳脫舒適圈，更發現自己的潛能。"
+    />
+    <link rel="shortcut icon" href="./images/favicon.ico" />
+    <link rel="bookmark" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="./style/tools/bootstrap_icons.css" />
+    <link rel="stylesheet" href="./style/tools/EsME_fonts.css" />
+    <link rel="stylesheet" href="./style/EscapeME.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+
+  <body>
+    <!-- 導覽列 -->
+    <nav class="navigation">
+      <!--logo img -->
+      <div class="nav-logo">
+        <a href="./about.html">
+          <img id="logo-img" src="./images/logo/logo_rec.png " />
+          <img id="logo-img-s" src="./images/logo/EsME_logo_main.png" />
+        </a>
+      </div>
+      <!-- nav icon -->
+      <div class="nav-wrap">
+        <div class="nav-item">
+          <a href="index.html">
+            <i class="bi bi-house"></i>
+            <p>HOME</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="./search.html">
+            <i class="bi bi-search"></i>
+            <p>FIND</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="rank.html">
+            <i class="bi bi-trophy"></i>
+            <p>RANK</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="./shopping.html">
+            <i class="bi bi-cart"></i>
+            <p>SHOP</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <div class="personal-img-border">
+            <a href="personal_page.html">
+              <img :src="userImgSrc" alt="個人頭像" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- start btn -->
+      <div class="start-btn-wrap">
+        <div class="start-btn">
+          <a href="./mission.html">
+            <p class="pixel text-color-white">▶︎ Start</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- 導覽列結束 -->
+    <div class="main-EsME-intro">
+      <div class="rpg-canvas">
+        <canvas id="myCanvas" width="1200" height="700"></canvas>
+        <div class="talkBox">
+          <div id="introduce" class="typing"></div>
+        </div>
+      </div>
+      <div class="EsME-intro">
+        <!-- join-us -->
+        <div class="join-us">
+          <img src="./images/logo/EsME_logo_APP.png" alt="" />
+          <h2>跳脫舒適圈，串起每個獨立個體</h2>
+          <a href="./signup.html">註冊加入</a>
+        </div>
+        <!-- about-EscapeME -->
+        <div class="about-EscapeME">
+          <div class="sticky-note-yellow"></div>
+          <div class="motivation">
+            <img src="./images/tuntun/waiting.png" alt="" />
+            <div>
+              <p>覺得日復一日</p>
+              <p>每天總是重複同樣的循環</p>
+              <p>想嘗試不同事情，卻不知道要做什麼嗎？</p>
+            </div>
+          </div>
+          <div class="sticky-note-green"></div>
+          <div class="motivation-reverse">
+            <img src="./images/tuntun/dance.png" alt="" />
+            <div>
+              <p>只要你願意，</p>
+              <p>我們提供各種任務等你來挑戰！</p>
+              <br />
+              <h1 class="pixel text-color-red">100+</h1>
+              <p class="pixel text-color-blue">Missions</p>
+            </div>
+          </div>
+          <div class="sticky-note-red"></div>
+          <div class="feature">
+            <h1 class="pixel text-color-yellow-l">Our Feature</h1>
+            <img src="./images/logo/EsME_logo_main.png" alt="" />
+            <br />
+            <p class="tc-w">Escape ME</p>
+            <p class="text-color-blue-l">逃脫 自我設限</p>
+            <br />
+            <p class="tc-w">
+              鼓勵使用者跳脫舒適圈，勇敢嘗試新事物。
+            </p>
+            <p class="tc-w">
+              藉由完成不同任務體驗不同的生活樣貌，跳脫及拓展舒適圈，
+            </p>
+            <p class="tc-w">
+              探索並認識自己，激發自我潛能，進而產生新的人生體悟。
+            </p>
+
+            <br />
+            <img src="./images/logo/slogan.png" alt="" />
+          </div>
+          <div class="sticky-note-green"></div>
+          <div class="get-started">
+            <h1 class="pixel text-color-red">Get Started</h1>
+            <div class="get-start-step">
+              <div>
+                <h1 class="pixel text-color-blue">▼</h1>
+                <h2 class="pixel text-color-gray">Mission</h2>
+                <br />
+                <p>每天可以抽取 3 次任務</p>
+                <p>(每日 AM 00:00 更新)</p>
+                <br />
+                <p class="warning">
+                  <span class="text-color-red-l pixel">WARNING</span> 
+                  <br />
+                  Escape ME
+                  所提供之活動及任務，可能具有潛在風險。任務執行期間，請使用者審慎頻估自身狀況，並注意自身安全。
+                  使用者應以正當且符合法律原則之方式完成任務，請勿從事違反善良風俗或違反法律之行為，若有違反，當事人應負所有法律責任，Escape
+                  ME 概不負責。
+                </p>
+              </div>
+              <img src="./images/mission_demo.png" alt="" />
+            </div>
+            <div class="get-start-step">
+              <div>
+                <h1 class="pixel text-color-green">▼</h1>
+                <h2 class="pixel text-color-gray">Post</h2>
+                <br />
+                <p>完成任務後寫下心得感想，</p>
+                <p>分享給來自各地的使用者！</p>
+                <br>
+                <p>你也可以透過查看其他人完成的任務，互相交流認識新朋友！</p>
+              </div>
+              <img src="./images/post_demo.png" alt="" />
+            </div>
+            <div class="get-start-step">
+              <div>
+                <h1 class="pixel text-color-yellow">▼</h1>
+                <h2 class="pixel text-color-gray">Rank</h2>
+                <br />
+                <p>完成不同任務難度的任務，</p>
+                <p>會獲得不同數量的星星。</p>
+                <br />
+                <p>獲得越多的星星，</p>
+                <p>就有機會登上達人榜，</p>
+                <p>讓更多人認識你！</p>
+              </div>
+              <img src="./images/tuntun/star.png" alt="" />
+            </div>
+          </div>
+          <div class="sticky-note-yellow"></div>
+        </div>
+
+        <div class="team-members">
+          <h2 class="pixel text-color-gray">Meet the Team</h2>
+
+          <div>
+            <!-- member -->
+            <div class="member">
+              <div class="member-content">
+                <div class="img-name">
+                  <img
+                    src="./images/TeamMembers/member01.png"
+                    alt="picture of 鄭忠穎"
+                  />
+                  <p>Henry ZHENG</p>
+                </div>
+                <div class="member-intro">
+                  <p>Team Leader</p>
+                  <p>Backend Engineer</p>
+                  <div>
+                    <a href="mailto:asd990055@gmail.com">
+                      <i class="bi bi-envelope"></i>
+                    </a>
+                    <a href="">
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- member -->
+            <div class="member">
+              <div class="member-content">
+                <div class="img-name">
+                  <img
+                    src="./images/TeamMembers/member02.png"
+                    alt="picture of 林君霓｜Ginny LIN"
+                  />
+                  <p>Ginny LIN</p>
+                </div>
+                <div class="member-intro">
+                  <p>UI UX Designer</p>
+                  <p>Frontend Engineer</p>
+                  <div>
+                    <a href="mailto:rbgnii@gmail.com">
+                      <i class="bi bi-envelope"></i>
+                    </a>
+                    <a href="">
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- member -->
+            <div class="member">
+              <div class="member-content">
+                <div class="img-name">
+                  <img
+                    src="./images/TeamMembers/member03.png"
+                    alt="picture of 詹智鈞"
+                  />
+                  <p>Johnny ZHAN</p>
+                </div>
+                <div class="member-intro">
+                  <p>Team Member</p>
+                  <p>Backend Engineer</p>
+                  <div>
+                    <a href="mailto:johnny870218@gmail.com">
+                      <i class="bi bi-envelope"></i>
+                    </a>
+                    <a href="">
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- member -->
+            <div class="member">
+              <div class="member-content">
+                <div class="img-name">
+                  <img
+                    src="./images/TeamMembers/member05.png"
+                    alt="picture of 林泓燁"
+                  />
+                  <p>Lynn LIN</p>
+                </div>
+                <div class="member-intro">
+                  <p>Team Member</p>
+                  <p>Frontend Engineer</p>
+                  <div>
+                    <a href="mailto:1031.lin2000@gmail.com">
+                      <i class="bi bi-envelope"></i>
+                    </a>
+                    <a href="">
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- member -->
+            <div class="member">
+              <div class="member-content">
+                <div class="img-name">
+                  <img
+                    src="./images/TeamMembers/member06.png"
+                    alt="picture of 林大祐"
+                  />
+                  <p>York LIN</p>
+                </div>
+                <div class="member-intro">
+                  <p>Team Member</p>
+                  <p>Backend Engineer</p>
+                  <div>
+                    <a href="410211324yoyo@gmail.com">
+                      <i class="bi bi-envelope"></i>
+                    </a>
+                    <a href="">
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- member -->
+            <div class="member">
+              <div class="member-content">
+                <div class="img-name">
+                  <img
+                    src="./images/TeamMembers/member04.png"
+                    alt="picture of 顏廷勳"
+                  />
+                  <p>ISao YAN</p>
+                </div>
+                <div class="member-intro">
+                  <p>Team Member</p>
+                  <p>Backend Engineer</p>
+                  <div>
+                    <a href="mailto:sizuku6793@gmail.com">
+                      <i class="bi bi-envelope"></i>
+                    </a>
+                    <a href="">
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sticky-note-red"></div>
+
+        <div class="collaboration">
+          <h2 class="pixel text-color-gray">Collaboration</h2>
+          <div>
+            <!-- member -->
+            <div class="member">
+              <div class="member-content">
+                <div class="img-name">
+                  <img src="./images/tuntun/tuntun.jpg" alt="picture of 吞吞" />
+                  <p>吞吞</p>
+                </div>
+                <div class="member-intro">
+                  <p>Illustrator</p>
+                  <div>
+                    <a
+                      target="_blank"
+                      href="https://www.instagram.com/tuntun_note/"
+                    >
+                      <i class="bi bi-instagram"></i>
+                    </a>
+                    <a
+                      target="_blank"
+                      href="https://store.line.me/stickershop/author/121517/zh-Hant?l=universal"
+                    >
+                      <i class="bi bi-shop"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <footer class="padding-b">
+      <p>國立臺北科技大學</p>
+      <p>Java & Android 程式設計人才養成班</p>
+      <p>017 期 第二組 期末專題製作</p>
+      <p class="copyright">2021 Escape ME All Rights Reserved</p>
+    </footer>
+
+    <script src="./js/vue.js"></script>
+    <script src="./js/about.js"></script>
+
+  </body>
+</html>

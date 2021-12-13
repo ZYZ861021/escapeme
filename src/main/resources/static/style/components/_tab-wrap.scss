@@ -1,0 +1,92 @@
+$num-of-tabs: 2;
+
+@mixin tabs {
+  @for $i from 1 through $num-of-tabs {
+    &:nth-of-type(#{$i}) {
+      &:checked {
+        ~ .slide {
+          left: calc((100% / #{$num-of-tabs}) * (#{$i} - 1));
+        }
+      }
+    }
+  }
+}
+
+.tab-wrap {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+
+  input[type="radio"][name="tabs"] {
+    position: absolute;
+    z-index: -1;
+    &:checked {
+      + .tab-label-content {
+        label {
+          color: $EsME_red;
+        }
+        .tab-content {
+          display: block;
+        }
+      }
+    }
+    @include tabs;
+    &:first-of-type {
+      &:checked {
+        ~ .slide {
+          left: 0;
+        }
+      }
+    }
+  }
+  label {
+    cursor: pointer;
+    color: $EsME_gray;
+    background-color: white;
+    border-bottom: 1px solid $EsME_gray_light;
+    @include flex-center();
+    height: 50px;
+    font-size: 20px;
+    transition: color 0.5s ease;
+    width: 100%;
+  }
+
+  .slide {
+    background: $EsME_yellow;
+    width: calc(100% / #{$num-of-tabs});
+    height: 4px;
+    border: 1px solid $EsME_white;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    top: calc(100% - 2px);
+    transition: left 0.3s ease-out;
+  }
+
+  .tab-label-content {
+    width: 100%;
+    .tab-content {
+      width: 100%;
+      position: absolute;
+      top: 50px;
+      left: 0px;
+      padding-bottom: 50px;
+      display: none;
+      background-color: white;
+      overflow: auto;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .tab-wrap {
+    width: 90vw;
+    label > i:hover {
+      font-size: 25px;
+    }
+    .tab-content {
+      width: 90vw;
+    }
+  }
+}

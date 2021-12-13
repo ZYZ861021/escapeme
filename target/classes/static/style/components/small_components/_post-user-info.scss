@@ -1,0 +1,19 @@
+.post-user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 15px 0px;
+
+  img {
+    @include user-img(40px);
+    vertical-align: middle;
+  }
+
+  .user-name {
+    margin-left: 5px;
+  }
+
+  .bi-three-dots-vertical {
+    color: $EsME_gray;
+  }
+}

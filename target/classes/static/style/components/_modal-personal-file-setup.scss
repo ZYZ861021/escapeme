@@ -1,0 +1,124 @@
+.personal-file-setup {
+  .upload-img-warp {
+    padding: 30px 0 15px;
+    // background: linear-gradient(110deg, #a1ffce, #faffd1);
+    background: url("../images/background/pixel_bg_43_empty.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .priview-img-wrap {
+      // border: 1px solid $EsME_gray;
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      img {
+        @include user-img(118px);
+      }
+    }
+    > p {
+      color: $EsME_gray_light;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+    .upload-img-btn {
+      display: block;
+      @include flex-center();
+      background-color: $EsME_blue;
+      cursor: pointer;
+      padding: 3px 10px;
+      color: white;
+      border-radius: 5px;
+      text-align: center;
+      #upload-img {
+        display: none;
+      }
+      &:hover {
+        background-color: $EsME_green;
+      }
+    }
+  }
+
+  .upload-context-wrap {
+    padding: 15px;
+    p {
+      color: $EsME_gray;
+      text-align: left;
+      padding-left: 5px;
+      font-size: 14px;
+    }
+    > textarea {
+      width: 100%;
+      padding: 10px;
+      border-color: lightgray;
+      border-radius: 5px;
+      margin: 5px 0 15px;
+      resize: none;
+    }
+    > button {
+      display: block;
+      margin: auto;
+      color: white;
+      font-size: 16px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      background-color: $EsME_green;
+      &:hover{
+      background-color: $EsME_blue;
+      }
+    }
+  }
+}
+
+// =================================
+.account-setting {
+  width: 85%;
+  margin: 20px auto;
+  p {
+    font-size: 18px;
+    line-height: 3;
+    color: $EsME_gray;
+    text-align: center;
+  }
+  label {
+    margin-top: 10px;
+    margin-left: 5px;
+    color: $EsME_gray;
+  }
+  span,
+  span a {
+    color: $EsME_blue;
+    font-size: 12px;
+  }
+  input,
+  button {
+    display: block;
+    margin: 5px auto 15px;
+    padding: 0 20px;
+    width: 100%;
+    height: $input_button_height;
+    border: none;
+    border-radius: 15px;
+    &:disabled {
+      background: $EsME_gray_light;
+      border: 1px solid $EsME_gray;
+    }
+  }
+  button {
+    margin: 20px auto;
+    background-color: $EsME_blue;
+    color: $EsME_white;
+  }
+
+  #logout-btn {
+    background-color: $EsME_red_light;
+  }
+}
+@media screen and (min-width: 768px) {
+  .account-setting {
+    width: 50%;
+  }
+}

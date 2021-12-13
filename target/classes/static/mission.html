@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escape ME | 跳脫舒適圈的社交平台 | 任務頁面</title>
+    <meta
+      name="description"
+      content="一款全新概念的社交平台。「常常覺得生活沒有目標嗎？」Escape ME 提供你各式任務、冒險、挑戰等你去完成，藉此跳脫舒適圈，更發現自己的潛能。"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
+    <link rel="bookmark" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="./style/tools/bootstrap_icons.css" />
+    <link rel="stylesheet" href="./style/tools/EsME_fonts.css" />
+    <link rel="stylesheet" href="./style/EscapeME.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/vue.js"></script>
+  </head>
+
+  <body>
+    <!-- 導覽列 -->
+    <nav class="navigation">
+      <!--logo img -->
+      <div class="nav-logo">
+        <a href="./about.html">
+          <img id="logo-img" src="./images/logo/logo_rec.png " />
+          <img id="logo-img-s" src="./images/logo/EsME_logo_main.png" />
+        </a>
+      </div>
+      <!-- nav icon -->
+      <div class="nav-wrap">
+        <div class="nav-item">
+          <a href="index.html">
+            <i class="bi bi-house"></i>
+            <p>HOME</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="./search.html">
+            <i class="bi bi-search"></i>
+            <p>FIND</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="rank.html">
+            <i class="bi bi-trophy"></i>
+            <p>RANK</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="./shopping.html">
+            <i class="bi bi-cart"></i>
+            <p>SHOP</p>
+          </a>
+        </div>
+        <div class="nav-item">
+          <div class="personal-img-border">
+            <a href="personal_page.html">
+              <img :src="userImgSrc" alt="個人頭像" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- start btn -->
+      <!-- <div class="start-btn-wrap">
+        <div class="start-btn">
+          <a href="">
+            <p class="pixel text-color-white">▶︎ Start</p>
+          </a>
+        </div>
+      </div> -->
+    </nav>
+    <!-- 導覽列結束 -->
+    <!-- 抽取任務 -->
+    <div id="missionVue" class="main-with-bg-mission">
+      <!-- 抽任務次數 -->
+      <div class="mission-left-and-new-mission">
+        <div class="new-mission-btn-space">
+          <button @click="getNewMission" class="new-mission-btn">抽任務</button>
+        </div>
+        <p>剩餘抽取次數：{{missionLeft}} 次</p>
+
+        <p><span>(一天有 3 次抽取次數，並於每日 AM 00:00 更新)</span></p>
+      </div>
+
+      <!-- 任務 -->
+      <div v-if="isShow" class="mission-box">
+        <div class="transparent-border">
+          <div class="mission-card-top">
+            <button :class="mission.type">{{mission.title}}</button>
+
+            <h1 class="pixel">{{mission.star}}</h1>
+            <p># {{mission.quest}}</p>
+          </div>
+          <div class="mission-card-bottom">
+            <div class="mission-intro">
+              <p>{{mission.missionContent}}</p>
+            </div>
+            <button @click="cgDisplay">完成任務</button>
+          </div>
+        </div>
+      </div>
+      <!-- 任務結束 -->
+      <!-- empty mission -->
+      <div v-else class="mission-box-0">
+        <button class="addMission">+</button>
+      </div>
+      <!-- Modal -->
+      <!-- change mission file -->
+      <div v-show="styleDisplay" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>新貼文</div>
+            <div>
+              <i @click="close" class="close bi bi-x-circle"></i>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="mission-post">
+              <div class="upload-img-warp">
+                <div class="priview-img-wrap">
+                  <img :src="previewImgSrc" />
+                </div>
+                <label class="upload-img-btn" for="upload-img">
+                  <input
+                    @change="uploadPreviewImg"
+                    type="file"
+                    accept=".png, .jpg, .jpeg"
+                    id="upload-img"
+                  />
+                  <i class="bi bi-image"></i>&ensp;選擇圖片
+                </label>
+                <p>圖片大小限制 &lt; 2MB</p>
+              </div>
+              <div class="upload-context-wrap">
+                <div class="tag-wrap">
+                  <button :class="mission.type">{{mission.title}}</button>
+                  <p class="mission-name"># {{mission.quest}}</p>
+                </div>
+                <textarea
+                  id="self-intro"
+                  rows="10"
+                  placeholder="寫下你的心得、感想 ..."
+                  v-model="postContent"
+                ></textarea>
+                <button @click="uploadPostContent">發佈貼文</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal END-->
+    </div>
+    <!-- 抽取任務結束 -->
+
+    <!-- 其他任務 -->
+    <div class="other-missions">
+      <h1 class="pixel">MORE MISSIONS</h1>
+      <!-- 成就任務 -->
+      <div id="LifeMissionsApp" class="life-missions">
+        <!-- 任務 -->
+        <div
+          v-for="(m,index) in lifeMissions"
+          :key="m.missionId"
+          class="mission-box"
+        >
+          <div class="transparent-border">
+            <div class="mission-card-top">
+              <button class="mission-tag-11">人生成就</button>
+
+              <h1 class="pixel">{{m.star}}</h1>
+              <p># {{m.quest}}</p>
+            </div>
+            <div class="mission-card-bottom">
+              <div class="mission-intro">
+                <p>{{m.missionContent}}</p>
+              </div>
+              <button @click="postModalDisplay(index)">完成任務</button>
+            </div>
+          </div>
+        </div>
+        <!-- 任務結束 -->
+
+        <!-- Modal -->
+        <!-- change mission file -->
+        <div
+          v-show="lifeMissionModalDisplay[index]"
+          v-for="(m,index) in lifeMissions"
+          :key="index"
+          class="modal"
+        >
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <div>新貼文</div>
+              <div>
+                <i
+                  @click="closePostModal(index)"
+                  class="close bi bi-x-circle"
+                ></i>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div class="mission-post">
+                <div class="upload-img-warp">
+                  <div class="priview-img-wrap">
+                    <img :src="previewImgSrc" v-show="showImg" />
+                  </div>
+                  <label class="upload-img-btn" :for="m.missionId">
+                    <input
+                      @change="uploadPreviewImg"
+                      type="file"
+                      accept=".png, .jpg, .jpeg"
+                      :id="m.missionId"
+                      class="upload-img"
+                    />
+                    <i class="bi bi-image"></i>&ensp;選擇圖片
+                  </label>
+                  <p>圖片大小限制 &lt; 2MB</p>
+                </div>
+                <div class="upload-context-wrap">
+                  <div class="tag-wrap">
+                    <button class="mission-tag-11">人生成就</button>
+                    <p class="mission-name"># {{m.quest}}</p>
+                  </div>
+                  <textarea
+                    id="self-intro"
+                    rows="10"
+                    placeholder="寫下你的心得、感想 ..."
+                    v-model="postContent"
+                  ></textarea>
+                  <button @click="uploadPostContent(m.missionId)">發佈貼文</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal END-->
+      </div>
+    </div>
+    <!-- footer -->
+    <footer class="padding-b">
+      <p>國立臺北科技大學</p>
+      <p>Java & Android 程式設計人才養成班</p>
+      <p>017 期 第二組 期末專題製作</p>
+      <p class="copyright">2021 Escape ME All Rights Reserved</p>
+    </footer>
+    <script src="./js/missions.js"></script>
+  </body>
+</html>

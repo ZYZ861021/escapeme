@@ -1,0 +1,72 @@
+[
+    {
+        "rank": "1",
+        "memberId": "1",
+        "nickName": "我是第1名",
+        "userImgSrc": "./images/EsMEKitty/EsME_Kitty_01.png",
+        "starCount": "100"
+    },
+    {
+        "rank": "2",
+        "memberId": "2",
+        "nickName": "我是第2名",
+        "userImgSrc": "./images/EsMEKitty/EsME_Kitty_02.png",
+        "starCount": "90"
+    },
+    {
+        "rank": "3",
+        "memberId": "3",
+        "nickName": "我是第3名",
+        "userImgSrc": "./images/EsMEKitty/EsME_Kitty_03.png",
+        "starCount": "87"
+    },
+    {
+        "rank": "4",
+        "memberId": "4",
+        "nickName": "我是第4名",
+        "userImgSrc": "./images/EsMEKitty/EsME_Kitty_04.png",
+        "starCount": "80"
+    },
+    {
+        "rank": "5",
+        "memberId": "5",
+        "nickName": "我是第5名",
+        "userImgSrc": "./images/EsMEKitty/EsME_Kitty_05.png",
+        "starCount": "70"
+    },
+    {
+        "rank": "6",
+        "memberId": "6",
+        "nickName": "我是第6名",
+        "userImgSrc": "./images/EsMEKitty/EsME_Kitty_06.png",
+        "starCount": "50"
+    },
+    {
+        "rank": "7",
+        "memberId": "7",
+        "nickName": "我是第7名",
+        "userImgSrc": "./images/EsMEKitty/EsME_Kitty_07.png",
+        "starCount": "40"
+    },
+    {
+        "rank": "8",
+        "memberId": "8",
+        "nickName": "我是第8名",
+        "userImgSrc": "./images/EsMEKitty/EsME_Kitty_08.png",
+        "starCount": "30"
+    },
+    {
+        "rank": "9",
+        "memberId": "9",
+        "nickName": "我是第9名",
+        "userImgSrc": "./images/EsMEKitty/EsME_Kitty_09.png",
+        "starCount": "20"
+    },
+    {
+        "rank": "10",
+        "memberId": "10",
+        "nickName": "我是第10名",
+        "userImgSrc": "./images/EsMEKitty/EsME_Kitty_10.png",
+        "starCount": "10"
+    }
+]
